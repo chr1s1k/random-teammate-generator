@@ -1,0 +1,14 @@
+.header {
+	color: $white;
+	padding: map-get($spacers, 3) 0;
+	background-color: $primary;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,0.3);
+
+	h1 {
+		font-size: $h3-font-size;
+	}
+}
+
+.main {
+	margin-top: map-get($spacers, 4);
+}
