@@ -31,17 +31,7 @@
 
 		data() {
 			return {
-				players: [
-					{
-						name: 'Hráč 1'
-					},
-					{
-						name: 'Hráč 2'
-					},
-					{
-						name: 'Hráč 3'
-					},
-				]
+				players: []
 			}
 		},
 

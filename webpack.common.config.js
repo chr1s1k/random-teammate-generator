@@ -14,10 +14,10 @@ module.exports = {
 	// https://medium.com/@stefanledin/solve-the-you-are-using-the-runtime-only-build-of-vue-error-e675031f2c50
 	// https://vuejs.org/v2/guide/installation.html#Webpack
 	resolve: {
+		extensions: ['*', '.js', '.vue', '.json'],
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js'
-		},
-		extensions: ['*', '.js', '.vue', '.json']
+		}
 	},
 
 	module: {
@@ -25,6 +25,19 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				use: 'vue-loader'
+			},
+			{
+				test: /\.js$/,
+				loaders: 'babel-loader',
+				exclude: /node_modules/,
+				options: {
+					presets: [
+						'@babel/preset-env'
+					],
+					plugins: [
+						'babel-plugin-transform-es2015-shorthand-properties' // IE 11 & Safari
+					]
+				}
 			}
 		]
 	},
