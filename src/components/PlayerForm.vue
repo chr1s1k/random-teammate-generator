@@ -6,8 +6,9 @@
 				type="text"
 				name="playerName"
 				id="playerName"
+				tabindex="1"
 				v-model.trim="player.name"
-				class="form-control form-control-lg"
+				class="form-control"
 				v-bind:class="{ 'is-invalid': hasFormError }"
 				placeholder="Zadej jméno hráče"
 				@keypress="clearFormStatus"
@@ -15,7 +16,7 @@
 				autofocus
 			/>
 			<div class="input-group-append">
-				<button class="btn btn-outline-primary" type="submit">Přidat</button>
+				<button class="btn btn-outline-primary" type="submit" tabindex="2">Přidat</button>
 			</div>
 		</div>
 	</form>
