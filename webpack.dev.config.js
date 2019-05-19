@@ -7,6 +7,11 @@ module.exports = webpackMerge(commonConfig, {
 	mode: 'development',
 	devtool: 'source-map',
 
+	devServer: {
+		host: '0.0.0.0', // umožní přístup i z jiných adres, než jen z localhostu
+		port: 8080
+	},
+
 	module: {
 		rules: [
 			{

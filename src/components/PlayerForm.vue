@@ -7,8 +7,9 @@
 				name="playerName"
 				id="playerName"
 				tabindex="1"
-				v-model.trim="player.name"
 				class="form-control"
+				ref="playerName"
+				v-model.trim="player.name"
 				v-bind:class="{ 'is-invalid': hasFormError }"
 				placeholder="Zadej jméno hráče"
 				@keypress="clearFormStatus"
@@ -57,6 +58,9 @@
 				this.player = {
 					name: ''
 				}
+
+				// po odeslání formuláře nastav focus do inputu
+				this.$refs.playerName.focus()
 			},
 
 			clearFormStatus() {
