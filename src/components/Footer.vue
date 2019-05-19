@@ -1,7 +1,7 @@
 <template>
 	<div class="footer" role="contentinfo">
 		<div class="container-fluid">
-			<div class="copyright small">&copy; 2019 Vytvořil <a href="https://radeksukup.com" target="_blank">Radek Sukup</a></div>
+			<div class="copyright small text-center">&copy; 2019 Vytvořil <a href="https://radeksukup.com" target="_blank">Radek Sukup</a></div>
 		</div>
 	</div>
 </template>
