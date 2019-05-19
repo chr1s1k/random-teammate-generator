@@ -4,7 +4,7 @@
 		<div class="row">
 			<div v-for="(team, index) in teams" :key="index" class="col-12 col-sm-6 col-md-4 col-xl-3">
 				<ul class="list-group mb-3">
-					<li class="list-group-item bg-warning py-2">
+					<li class="list-group-item bg-secondary text-white py-2">
 						<strong>Tým č. {{ (index + 1) }}</strong>
 					</li>
 					<li v-for="(player, index) in team" :key="index" class="list-group-item">{{ player.name }}</li>
