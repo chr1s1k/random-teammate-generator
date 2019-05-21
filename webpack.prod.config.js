@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpackMerge = require('webpack-merge')
 const commonConfig = require('./webpack.common.config.js')
 const path = require('path')
@@ -31,5 +32,16 @@ module.exports = webpackMerge(commonConfig, {
 				]
 			}
 		]
-	}
+	},
+
+	plugins: [
+		new CopyWebpackPlugin([
+			{
+				from: 'images/**/*', // vezmi celý adresář `${context}images` a všechno v něm
+				to: './',
+				force: true,
+				context: './src/assets/'
+			}
+		])
+	]
 })

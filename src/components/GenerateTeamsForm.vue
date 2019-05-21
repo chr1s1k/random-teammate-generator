@@ -3,7 +3,12 @@
 		<div class="form-group">
 			<label for="playersPerTeam" class="mb-1">V každém týmu budou</label>
 			<div class="input-group">
-				<select v-model="playersPerTeam" class="custom-select" id="playersPerTeam" name="playersPerTeam">
+				<select
+					:value="playersPerTeam"
+					@change="handleChange"
+					class="custom-select"
+					id="playersPerTeam"
+					name="playersPerTeam">
 					<option value="2">2 hráči</option>
 					<option value="3">3 hráči</option>
 					<option value="4">4 hráči</option>
@@ -28,17 +33,22 @@
 		name: 'generate-teams-form',
 
 		props: {
-			players: Array
+			players: Array,
+			playersPerTeam: Number,
 		},
 
 		data() {
 			return {
-				playersPerTeam: 2,
 				team: [],
 			}
 		},
 
 		methods: {
+			handleChange(event) {
+				const number = parseFloat(event.target.value, 10) // hodnota ze selectu
+				this.$emit('change:playersPerTeam', number)
+			},
+
 			handleSubmit() {
 				let allowToContinue = true
 
