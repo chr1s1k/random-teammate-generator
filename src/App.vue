@@ -23,6 +23,7 @@
 				</div>
 				<results
 					v-bind:teams="teams"
+					@rename:team="renameTeam"
 				/>
 				<div v-if="teams.length" class="form-group">
 					<button
@@ -101,6 +102,12 @@
 
 			changePlayersPerTeam(number) {
 				this.playersPerTeam = number
+			},
+
+			renameTeam(team) {
+				const indexToRename = team.id
+
+				this.teams[indexToRename].name = team.name
 			}
 		}
 	}

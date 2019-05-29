@@ -39,7 +39,10 @@
 
 		data() {
 			return {
-				team: [],
+				team: {
+					name: null,
+					players: [],
+				},
 			}
 		},
 
@@ -60,13 +63,22 @@
 					this.$emit('clear:teams') // před vygenerováním týmů vyresetuj původní pole
 
 					const shuffledPlayers = helpers.shuffleArray(this.players) // "zamíchej" hráče
+					let teamsCreated = 1
 
 					for (let i = 0; i < shuffledPlayers.length; i++) {
-						this.team.push(shuffledPlayers[i]) // přidej hráče do týmu
+						this.team.players.push(shuffledPlayers[i]) // přidej hráče do týmu
 
 						if ((i+1) % this.playersPerTeam === 0 || (i+1) === shuffledPlayers.length) {
+							this.team.name = `Tým č. ${teamsCreated}` // nastav defaultní název týmu
+
 							this.$emit('create:team', this.team) // vytvoř tým a pošli ho do rodičovské komponenty
-							this.team = []
+
+							this.team = {
+								name: null,
+								players: [],
+							}
+
+							teamsCreated++
 						}
 					}
 				}
