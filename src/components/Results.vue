@@ -23,7 +23,7 @@
 								type="button"
 								class="btn btn-link btn-sm pr-0 text-white"
 								v-on:click.prevent="handleClick(index)"
-								v-else>Upravit název
+								v-else>Přejmenovat
 							</button>
 						</form>
 					</li>
